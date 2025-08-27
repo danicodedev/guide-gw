@@ -42,9 +42,10 @@
     <header class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
       <div class="flex items-center gap-4">
         <div class="h-16 w-16 md:h-20 md:w-20 rounded-2xl bg-violet-100 flex items-center justify-center overflow-hidden">
-          <img id="logo" alt="Logo" class="h-full w-full object-contain hidden" />
-          <span id="logo-fallback" class="text-violet-700 font-bold">LOGO</span>
-        </div>
+            <img id="logo" src="logo-vert.png" alt="Logo do evento"
+                 class="h-full w-full object-contain scale-150" />
+            <span id="logo-fallback" class="hidden text-violet-700 font-bold">LOGO</span>
+          </div>          
         <div>
           <h1 class="text-2xl md:text-3xl font-black tracking-tight text-slate-900">Gineca Weekend 2025</h1>
           <p class="text-slate-600 mt-1">Fortaleza – 18 e 19 de outubro</p>
@@ -55,11 +56,6 @@
         </div>
       </div>
       <div class="flex flex-col sm:flex-row gap-3 no-print">
-        <label style="display: none;" class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl ring-1 ring-violet-200 text-violet-700 cursor-pointer hover:bg-violet-50">
-          <i data-lucide="upload" class="w-4 h-4"></i>
-          <span>Enviar logo</span>
-          <input id="logo-input" type="file" accept="image/*" class="hidden" />
-        </label>
         <button id="print-btn" class="inline-flex items-center gap-2 px-4 py-2 bg-violet-600 text-white rounded-xl hover:bg-violet-700">
           <i data-lucide="printer" class="w-4 h-4"></i>
           <span>Imprimir / Salvar PDF</span>
@@ -166,6 +162,8 @@
       { name: "Casa Pane Vino", address: "R. Jaime Pinheiro, 177 – Guararapes, Fortaleza" },
       { name: "Restaurante Coco Bambu Sul", address: "R. República da Armênia, 1154 – Parque Manibura, Fortaleza" },
       { name: "Raiz Cozinha Brasileira", address: "Av. Washington Soares, 3300 – ao lado da Livraria Dom Pedro – Edson Queiroz, Fortaleza" },
+      { name: "Mc Donalds", address: "McDonald's, Av. Washington Soares, 1500 - Edson Queiroz, Fortaleza - CE, 60811-341" },
+      { name: "Tempero Único", address: "R. Adolfo Soares, 34 - Eng. Luciano Cavalcante, Fortaleza - CE, 60811-070" },
     ];
 
     const mapsSearchLink = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
@@ -230,7 +228,7 @@
     }
 
     // ===================== Eventos =====================
-    $logoInput.addEventListener('change', (e) => {
+    $logoInput?.addEventListener('change', (e) => {
       const file = e.target.files && e.target.files[0];
       if (!file) return;
       const url = URL.createObjectURL(file);
